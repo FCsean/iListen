@@ -1,0 +1,17 @@
+<% if !current_user %>
+  <script type="text/javascript">
+    window.location.href="login"  // put your correct path in a string here
+  </script>
+<% end %>
+<% form_for(@user, :html => { :multipart => true }) do |f| %>
+  <p>
+    <%= @user.username %>
+  </p>
+  <p>
+    <%= f.label :song %><br />
+    <%= f.file_field :song %>
+  </p>
+  <p>
+    <%= f.submit 'Upload' %>
+  </p>
+<% end %>
