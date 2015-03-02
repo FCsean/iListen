@@ -11,20 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302040151) do
+ActiveRecord::Schema.define(version: 20150302073025) do
 
   create_table "songs", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "artist",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.string   "username",          limit: 255
-    t.string   "password_hash",     limit: 255
-    t.string   "salt",              limit: 255
+    t.string   "title",             limit: 255
+    t.string   "artist",            limit: 255
+    t.integer  "user_id",           limit: 4
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.string   "song_file_name",    limit: 255
@@ -33,4 +25,16 @@ ActiveRecord::Schema.define(version: 20150302040151) do
     t.datetime "song_updated_at"
   end
 
+  add_index "songs", ["user_id"], name: "index_songs_on_user_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.string   "username",      limit: 255
+    t.string   "password_hash", limit: 255
+    t.string   "salt",          limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_foreign_key "songs", "users"
 end

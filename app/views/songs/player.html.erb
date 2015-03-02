@@ -4,4 +4,6 @@
   </script>
 <% end %>
 
-<%= @user %>
+<% @songs.each do |p| %>
+  <audio src="<%= p.song %>" controls></audio>
+<% end %>
