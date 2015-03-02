@@ -1,9 +1,16 @@
-<% if !current_user %>
-  <script type="text/javascript">
-    window.location.href="login"  // put your correct path in a string here
-  </script>
-<% end %>
-
+<a href="upload">Click here to upload</a>
+<br><br>
+<% if @songs.to_a.length == 0 %>
+  <h1>No songs uploaded yet.</h1>
+<% else %>
+<button onclick="prevSong()"><</button><audio id="player" src="<%= @songs[0].song %>" controls></audio><button onclick="nextSong()">></button>
+<br>
+<% count = 0 %>
+<h1>Uploaded Songs:</h1>
 <% @songs.each do |p| %>
-  <audio src="<%= p.song %>" controls></audio>
+  <div onclick="changeSong(<%= count %>)">
+  <% count += 1 %>
+  <a class="song"><%= p.artist %> - <%= p.title %></a><br>
+  </div>
+<% end %>
 <% end %>

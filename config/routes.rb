@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'users', to: redirect('signup')
   get 'sessions', to: redirect('login')
   get 'signup' => 'users#new', :as => 'signup'
+  get 'player' => 'songs#player'
   root :to => 'songs#player'
   resources :users
   resources :sessions

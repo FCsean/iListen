@@ -1,8 +1,4 @@
-<% if !current_user %>
-  <script type="text/javascript">
-    window.location.href="login"  // put your correct path in a string here
-  </script>
-<% end %>
+<a href="player"><-Back</a>
 <% if @song.errors.any? %>
 <div class="error_messages">
   <h2>Form is invalid</h2>
@@ -13,6 +9,7 @@
   </ul>
 </div>
 <% end %>
+<h1>Upload</h1>
 <%= form_for @song, :url => songs_path, :html => { :multipart => true } do |form| %>
   <%= form.file_field :song %>
   <p>
