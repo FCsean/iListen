@@ -26,7 +26,6 @@ class SongsController < ApplicationController
   def player
     @user = current_user
     @songs = @user.songs
-    
     gon.songs = @songs.map { |s| {"title"=>s.title, "artist"=>s.artist, "url"=>s.song.url}}
   end
   

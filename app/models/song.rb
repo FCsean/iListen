@@ -1,5 +1,6 @@
 class Song < ActiveRecord::Base
   belongs_to :user
+  has_and_belongs_to_many :playlists
   has_attached_file :song,
                     :url => "/assets/:class/:id/:attachment/:style.:extension",
                     :path => ":rails_root/public/assets/:class/:id/:attachment/:style.:extension"
