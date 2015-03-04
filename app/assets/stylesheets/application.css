@@ -23,19 +23,55 @@ h1{
 	color: #333333;
 }
 
-#user_nav, #features_nav{
-	z-index: 1000;
-	margin-top: 100px;
+.inputBox{
+	border-width: 1px;
+	border-color: gray;
+	border-radius: 4px;
+	height: 150%;
+	padding: 10px;
 }
 
-.button{
-	border: 0;
-	background-color: #EF4836 ;
+#user_nav, #features_nav{
+	font-family: 'Myriad Pro';
+	color: white;
+	font-size: 12pt;
 }
+
+	#loginID{
+		position: relative;
+		top: -68px;
+		left: 1150px;
+	}
+
+	#options{
+		position: relative;
+		top: -90px;
+		left: 30px;
+	}
+
+	.menu {
+		font-size: 18px;
+		padding-right: 50px;
+		color: #D7D7D7;
+		text-decoration: none;
+	}
+
+		.menu:link{
+			text-decoration: none;
+		}
+
+		.menu:visited{
+			text-decoration: none;
+		}
+
+		.menu:hover{
+			text-decoration: none;
+			color: white;
+		}
 
 #topBar{
 	background-color: #EF4836;
-	height: 90px;
+	height: 85px;
 	width: 100%;
 	position: fixed;
 	z-index: 800;
@@ -51,7 +87,7 @@ h1{
 	}
 
 	#topBar .iListen{
-		left: 20px;
+		left: 30px;
     	top: -20px;
     	position: relative;
 		color: #F0F0F0;
@@ -61,7 +97,7 @@ h1{
 	}
 
 	#topBar .iListenSubtext{
-		left: 20px;
+		left: 30px;
     	top: -70px;
     	position: relative;
 		color: #F0F0F0;
@@ -72,7 +108,7 @@ h1{
 
 #topBarBlack{
 	background-color: #2e2e2e;
-	height: 95px;
+	height: 120px;
 	width: 100%;
 	position: fixed;
 	z-index: 700;

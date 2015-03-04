@@ -1,4 +1,5 @@
 <!--User info container div-->
+<br><br>
 <div class="signInContainer">
 
 	<!--Log in to your account-->
@@ -9,13 +10,13 @@
 	<%= form_tag sessions_path do %>
 	  <p class = "textField">
 	    <%= label_tag :username %><br />
-	    <%= text_field_tag :username, params[:username] %>
+	    <%= text_field_tag :username, params[:username], :class => "inputBox" %>
 	  </p>
 	  <p>
 	    <%= label_tag :password %><br />
-	    <%= password_field_tag :password %>
+	    <%= password_field_tag :password, '', :class => "inputBox" %>
 	  </p>
-	  <p class="button"><%= submit_tag "Log in"%></p>
+	  <p><%= submit_tag "Log in", :class => "loginButton" %></p>
 	<% end %>
 	<!--Wild code ends-->
 

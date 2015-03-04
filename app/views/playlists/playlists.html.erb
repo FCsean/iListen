@@ -1,3 +1,4 @@
+<br><br><br><br><br><br>
 <h1>Create a Playlist</h1>
 
 <%= form_for @playlist do |f| %>
@@ -23,11 +24,21 @@
 <% else %>
 <h1>Playlists:</h1>
 <input type="checkbox" id="delete">Delete<br>
+
+<script>
+ $(function() {
+    $( "#playListList" ).sortable();
+    $( "ol, li" ).disableSelection();
+  });
+</script>
+
+<ol id="playListList">
 <% count = 0 %>
 <% @playlists.each do |p| %>
-  <div>
-  <a class="playlist" onclick="clickPlaylist('<%= count %>')"> <%= p.name %> </a>
-  </div>
+  <li>
+ <a class="playlist" onclick="clickPlaylist('<%= count %>')"> <%= p.name %> </a>
+  </li>
   <% count += 1 %>
 <% end %>
+</ol>
 <% end %>
