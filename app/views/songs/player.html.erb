@@ -2,6 +2,8 @@
 <% if @songs.to_a.length == 0 %>
   <h1>No songs uploaded yet.</h1>
 <% else %>
+<h1>Currently Playing</h1>
+<h2><div id="currently"><%= @songs.to_a[0].artist %> - <%= @songs.to_a[0].title %></div></h2>
 <button onclick="prevSong()"><</button><audio id="player" src="<%= @songs[0].song %>" controls></audio><button onclick="nextSong()">></button>
 <br>
 <% count = 0 %>

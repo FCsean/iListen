@@ -3,6 +3,8 @@
 <% if @songs.to_a.length == 0 %>
   <h2>No songs added to playlist yet.</h2>
 <% else %>
+<h1>Currently Playing</h1>
+<h2><div id="currently"><%= @songs.to_a[0].artist %> - <%= @songs.to_a[0].title %></div></h2>
 <button id="prev"><</button><audio id="player" src="<%= @songs[0].song %>" controls></audio><button id="next">></button>
 <br>
 <% count = 0 %>

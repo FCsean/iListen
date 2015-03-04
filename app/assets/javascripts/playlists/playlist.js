@@ -5,6 +5,7 @@ function changeSongInPlaylist(n){
   var player = document.getElementById("player");
   var playing = !player.paused;
   $("#player").attr("src", gon.playlist_songs[n].url);
+  $("#currently").text(gon.songs[n].artist + " - " + gon.songs[n].title)
   if(playing)
     player.play();
 };

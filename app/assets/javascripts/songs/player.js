@@ -25,6 +25,7 @@ function changeSong(n){
   var player = document.getElementById("player");
   var playing = !player.paused;
   $("#player").attr("src", gon.songs[n].url);
+  $("#currently").text(gon.songs[n].artist + " - " + gon.songs[n].title);
   if(playing)
     player.play();
 };
@@ -44,5 +45,4 @@ function prevSong(){
 $(document).ready(function(){
   $("#delete").attr('checked', false);
   $("#player").on("ended", function(){nextSong(); document.getElementById("player").play();});
-  
 })
