@@ -40,9 +40,31 @@ function addToPlaylist(){
   });
 }
 
+function clickPlaylist(n){
+  if($('#delete').prop('checked')){
+    $.ajax({
+      type:'POST',
+      url:'/delete/playlist',
+      data: { playlist_id : gon.playlists[n].id
+            },
+      success:function(){
+        //I assume you want to do something on controller action execution success?
+        location.reload();
+      },
+      error:function(){
+        location.reload();
+      }
+    });
+
+  }else{
+    redirect(gon.songs[n].url)
+  }
+}
+
 function redirect(n){
   location.replace("/playlist/"+n);
 }
+
 $("document").ready(function (){
   $("#search").keyup(function() {
     var q = $("#search").val().toUpperCase();
@@ -59,5 +81,5 @@ $("document").ready(function (){
   $("#search_results").html(m.join("<br>"));
   $("#prev").click(prevSong);
   $("#next").click(nextSong);
-  
-})
+  $("#delete").attr('checked', false); 
+});

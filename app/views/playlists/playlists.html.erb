@@ -22,9 +22,12 @@
   <h1>No playlists yet.</h1>
 <% else %>
 <h1>Playlists:</h1>
+<input type="checkbox" id="delete">Delete<br>
+<% count = 0 %>
 <% @playlists.each do |p| %>
   <div>
-  <a class="playlist" onclick="redirect('<%= p.name %>')"> <%= p.name %> </a>
+  <a class="playlist" onclick="clickPlaylist('<%= count %>')"> <%= p.name %> </a>
   </div>
+  <% count += 1 %>
 <% end %>
 <% end %>

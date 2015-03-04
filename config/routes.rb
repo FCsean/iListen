@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
 
-  get 'logout' => 'sessions#destroy', :as => 'logout'
-  get 'login' => 'sessions#new', :as => 'login'
-  get 'upload' => 'songs#upload', :as => 'upload'
-  get 'users', to: redirect('signup')
-  get 'sessions', to: redirect('login')
-  get 'signup' => 'users#new', :as => 'signup'
-  get 'player' => 'songs#player'
-  get 'playlists' => 'playlists#playlists'
-  post 'playlists/add' => 'playlists#add'
-  get 'playlist/:name', to: 'playlists#playlist'
+  get '/logout' => 'sessions#destroy', :as => 'logout'
+  get '/login' => 'sessions#new', :as => 'login'
+  get '/upload' => 'songs#upload', :as => 'upload'
+  get '/users', to: redirect('signup')
+  get '/sessions', to: redirect('login')
+  get '/signup' => 'users#new', :as => 'signup'
+  get '/player' => 'songs#player'
+  post '/delete/playlist' => 'playlists#delete'
+  post '/delete/song' => 'songs#delete'
+  get '/playlists' => 'playlists#playlists'
+  post '/playlists/add' => 'playlists#add'
+  get '/playlist/:name', to: 'playlists#playlist'
   root :to => 'songs#player'
   resources :users
   resources :sessions

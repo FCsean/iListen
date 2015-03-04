@@ -18,6 +18,7 @@ class PlaylistsController < ApplicationController
   def playlists
     @playlist = Playlist.new
     @playlists = current_user.playlists
+    gon.playlists = @playlists.map { |p| {"name"=> p.name, "id"=>p.id}}
   end
   
   def playlist
@@ -35,5 +36,9 @@ class PlaylistsController < ApplicationController
     playlist = Playlist.where(name: params[:playlist_name]).to_a.first
     song = Song.find(params[:song_id])
     playlist.songs << song
+  end
+  
+  def delete
+    Playlist.find(params[:playlist_id]).destroy
   end
 end
