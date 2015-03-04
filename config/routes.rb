@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   get 'sessions', to: redirect('login')
   get 'signup' => 'users#new', :as => 'signup'
   get 'player' => 'songs#player'
+  get 'playlists' => 'playlists#playlists'
+  post 'playlists/add' => 'playlists#add'
+  get 'playlist/:name', to: 'playlists#playlist'
   root :to => 'songs#player'
   resources :users
   resources :sessions
   resources :songs
+  resources :playlists
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
