@@ -1,33 +1,46 @@
-<h1>Sign Up</h1>
+<!--Top Bar-->
+<div id="topBar">
+  <p class="iListen">iListen</p>
+  <p class="iListenSubtext">Let the tunes follow you.</p>
+</div>
+<!--Top Bar Grey Area-->
+<div id="topBarBlack">
+</div>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+<div class="signInContainer">
+
+  <h1>Sign Up</h1>
+
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+      <%= f.label :username %><br />
+      <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %>
+    </p>
+    <p class="button"><%= f.submit %></p>
   <% end %>
-  <p>
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p class="button"><%= f.submit %></p>
-<% end %>
 
-<a href="login">Already have an Account? <br>Click here to login</a>
+  <a href="login">Already have an Account? <br>Click here to login</a>
+
+</div>
