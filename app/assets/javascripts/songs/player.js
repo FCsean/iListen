@@ -2,19 +2,19 @@ var current = 0;
 
 function clickSong(n){
   if($('#delete').prop('checked')){
-      $.ajax({
-        type:'POST',
-        url:'/playlists/add',
-        data: { song_id : gon.songs[n].id
-              },
-        success:function(){
-          //I assume you want to do something on controller action execution success?
-          location.reload();
-        },
-        error:function(){
-          location.reload();
-        }
-      });
+    $.ajax({
+      type:'POST',
+      url:'/delete/song',
+      data: { song_id : gon.songs[n].id
+            },
+      success:function(){
+        //I assume you want to do something on controller action execution success?
+        location.reload();
+      },
+      error:function(){
+        location.reload();
+      }
+    });
   }else{
     changeSong(n);
   }
@@ -41,3 +41,6 @@ function prevSong(){
   changeSong(current);
 }
 
+$(document).ready(function(){
+  $("#delete").attr('checked', false); 
+})
