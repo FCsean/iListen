@@ -1,15 +1,33 @@
-<h1>Log in</h1>
+<!--Top Bar-->
+<div id="topBar">
+	<p class="iListen">iListen</p>
+	<p class="iListenSubtext">Let the tunes follow you.</p>
+</div>
+<!--Top Bar Grey Area-->
+<div id="topBarBlack">
+</div>
 
-<%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :username %><br />
-    <%= text_field_tag :username, params[:username] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </p>
-  <p class="button"><%= submit_tag "Log in" %></p>
-<% end %>
+<!--User info container div-->
+<div class="signInContainer">
 
-<a href="signup">No account yet? <br>Click here to sign up</a>
+	<!--Log in to your account-->
+	<h1>Log in to your account</h1>
+
+	<!--User Information-->
+	<!--A wild ruby mixed with html code has appeared-->
+	<%= form_tag sessions_path do %>
+	  <p class = "textField">
+	    <%= label_tag :username %><br />
+	    <%= text_field_tag :username, params[:username] %>
+	  </p>
+	  <p>
+	    <%= label_tag :password %><br />
+	    <%= password_field_tag :password %>
+	  </p>
+	  <p class="button"><%= submit_tag "Log in"%></p>
+	<% end %>
+	<!--Wild code ends-->
+
+	<a href="signup">No account yet? <br>Click here to sign up</a>
+
+</div>

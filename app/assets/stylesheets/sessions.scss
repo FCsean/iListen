@@ -1,3 +1,76 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+p, a{
+	font-family: 'Myriad Pro';
+}
+
+h1{
+	font-family: 'Myriad Pro';
+	color: #333333;
+}
+
+.button{
+	border: 0;
+	background-color: #EF4836 ;
+}
+
+#topBar{
+	background-color: #EF4836;
+	height: 90px;
+	width: 100%;
+	position: fixed;
+	z-index: 999;
+	top: 0px;
+	left: 0px;
+}
+
+	#topBar p{
+		color: #F0F0F0;
+	}
+
+	#topBar .iListen .iListenSubText{
+	}
+
+	#topBar .iListen{
+		left: 20px;
+    	top: -20px;
+    	position: relative;
+		color: #F0F0F0;
+		font-family: 'Myriad Pro';
+		font-style: bold;
+		font-size: 30pt;	
+	}
+
+	#topBar .iListenSubtext{
+		left: 20px;
+    	top: -70px;
+    	position: relative;
+		color: #F0F0F0;
+		font-family: 'Myriad Pro';
+		font-style: bold;
+		font-size: 12pt;	
+	}
+
+#topBarBlack{
+	background-color: #2e2e2e;
+	height: 95px;
+	width: 100%;
+	position: fixed;
+	z-index: 998;
+	top: 0px;
+	left: 0px;
+}
+
+.textField{
+
+}
+
+.signInContainer{
+	position: relative;
+	top: 100px;
+	left: 10px;
+	border-right: solid #E7E7E7;
+	border-width: 1.5px;
+	width: 30%;
+}
