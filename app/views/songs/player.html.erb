@@ -6,8 +6,9 @@
 <br>
 <% count = 0 %>
 <h1>Uploaded Songs:</h1>
+<input type="checkbox" id="delete">Delete<br>
 <% @songs.each do |p| %>
-  <div onclick="changeSong(<%= count %>)">
+  <div onclick="clickSong(<%= count %>)">
   <% count += 1 %>
   <a class="song"><%= p.artist %> - <%= p.title %></a><br>
   </div>
