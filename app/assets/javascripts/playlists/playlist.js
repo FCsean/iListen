@@ -57,7 +57,7 @@ function clickPlaylist(n){
     });
 
   }else{
-    redirect(gon.songs[n].url)
+    redirect(gon.playlists[n].name)
   }
 }
 

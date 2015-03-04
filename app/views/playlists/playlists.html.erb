@@ -26,7 +26,7 @@
 <% count = 0 %>
 <% @playlists.each do |p| %>
   <div>
-  <a class="playlist" onclick="clickPlaylist('<%= count %>')"> <%= p.name %> </a>
+  <a class="playlist" onclick="clickPlaylist(<%= count %>)"> <%= p.name %> </a>
   </div>
   <% count += 1 %>
 <% end %>
