@@ -1,24 +1,24 @@
 var current = 0;
 
-function changeSong(n){
+function changeSongInPlaylist(n){
   current = n;
   var player = document.getElementById("player");
   var playing = !player.paused;
-  $("#player").attr("src", gon.songs[n].url);
+  $("#player").attr("src", gon.playlist_songs[n].url);
   if(playing)
     player.play();
 };
 
-function nextSong(){
+function nextSongInPlaylist(){
   current++;
-  current %= gon.songs.length;
-  changeSong(current);
+  current %= gon.playlist_songs.length;
+  changeSongInPlaylist(current);
 }
 
-function prevSong(){console.log("n");
+function prevSongInPlaylist(){console.log("n");
   current--;
   current = current < 0 ? current.length-1 : current;
-  changeSong(current);
+  changeSongInPlaylist(current);
 }
 
 function addToPlaylist(){
@@ -79,8 +79,8 @@ $("document").ready(function (){
   var m = f.map(function (s) {return s.artist + " - " + s.title;});
   id = f.length > 0 ? f[0].id : -1;
   $("#search_results").html(m.join("<br>"));
-  $("#prev").click(prevSong);
-  $("#next").click(nextSong);
+  $("#prev").click(prevSongInPlaylist);
+  $("#next").click(nextSongInPlaylist);
   $("#delete").attr('checked', false); 
   $("#player").on("ended", function(){nextSong(); document.getElementById("player").play();});
   
