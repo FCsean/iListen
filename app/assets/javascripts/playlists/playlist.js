@@ -1,24 +1,24 @@
 var current = 0;
 
-function changeSong(n){
+function changeSongInPlaylist(n){
   current = n;
   var player = document.getElementById("player");
   var playing = !player.paused;
-  $("#player").attr("src", gon.songs[n].url);
+  $("#player").attr("src", gon.playlist_songs[n].url);
   if(playing)
     player.play();
 };
 
-function nextSong(){
+function nextSongInPlaylist(){
   current++;
-  current %= gon.songs.length;
-  changeSong(current);
+  current %= gon.playlist_songs.length;
+  changeSongInPlaylist(current);
 }
 
-function prevSong(){console.log("n");
+function prevSongInPlaylist(){console.log("n");
   current--;
   current = current < 0 ? current.length-1 : current;
-  changeSong(current);
+  changeSongInPlaylist(current);
 }
 
 function addToPlaylist(){
@@ -57,7 +57,7 @@ function clickPlaylist(n){
     });
 
   }else{
-    redirect(gon.songs[n].url)
+    redirect(gon.playlists[n].name)
   }
 }
 
@@ -70,16 +70,18 @@ $("document").ready(function (){
     var q = $("#search").val().toUpperCase();
     if(q.length < 0) return;
     q = q.split(/\s+/);
-    var f = gon.songs.filter(s => q.every(r => s.title.toUpperCase().contains(r) || s.artist.toUpperCase().contains(r)));
-    var m = f.map(s => s.artist + " - " + s.title);
+    var f = gon.songs.filter(function(s){ return q.every(function (r){ return s.title.toUpperCase().contains(r) || s.artist.toUpperCase().contains(r);});});
+    var m = f.map(function(s){ return s.artist + " - " + s.title;});
     id = f.length > 0 ? f[0].id : -1;
     $("#search_results").html(m.length == 0 ? "" : m.join("<br>"));
   });
   var f = gon.songs;
-  var m = f.map(s => s.artist + " - " + s.title);
+  var m = f.map(function (s) {return s.artist + " - " + s.title;});
   id = f.length > 0 ? f[0].id : -1;
   $("#search_results").html(m.join("<br>"));
-  $("#prev").click(prevSong);
-  $("#next").click(nextSong);
+  $("#prev").click(prevSongInPlaylist);
+  $("#next").click(nextSongInPlaylist);
   $("#delete").attr('checked', false); 
+  $("#player").on("ended", function(){nextSong(); document.getElementById("player").play();});
+  
 });

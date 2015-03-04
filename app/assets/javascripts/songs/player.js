@@ -42,5 +42,7 @@ function prevSong(){
 }
 
 $(document).ready(function(){
-  $("#delete").attr('checked', false); 
+  $("#delete").attr('checked', false);
+  $("#player").on("ended", function(){nextSong(); document.getElementById("player").play();});
+  
 })
