@@ -70,16 +70,18 @@ $("document").ready(function (){
     var q = $("#search").val().toUpperCase();
     if(q.length < 0) return;
     q = q.split(/\s+/);
-    var f = gon.songs.filter(s => q.every(r => s.title.toUpperCase().contains(r) || s.artist.toUpperCase().contains(r)));
-    var m = f.map(s => s.artist + " - " + s.title);
+    var f = gon.songs.filter(function(s){ return q.every(function (r){ return s.title.toUpperCase().contains(r) || s.artist.toUpperCase().contains(r);});});
+    var m = f.map(function(s){ return s.artist + " - " + s.title;});
     id = f.length > 0 ? f[0].id : -1;
     $("#search_results").html(m.length == 0 ? "" : m.join("<br>"));
   });
   var f = gon.songs;
-  var m = f.map(s => s.artist + " - " + s.title);
+  var m = f.map(function (s) {return s.artist + " - " + s.title;});
   id = f.length > 0 ? f[0].id : -1;
   $("#search_results").html(m.join("<br>"));
   $("#prev").click(prevSong);
   $("#next").click(nextSong);
   $("#delete").attr('checked', false); 
+  $("#player").on("ended", function(){nextSong(); document.getElementById("player").play();});
+  
 });

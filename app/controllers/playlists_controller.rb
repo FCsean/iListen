@@ -29,7 +29,7 @@ class PlaylistsController < ApplicationController
     end
     @playlist = @playlist.first
     @songs = @playlist.songs
-    gon.songs = current_user.songs.map { |s| {"artist"=>s.artist, "title"=>s.title, "id"=>s.id, "url"=>s.song.url}}
+    gon.songs = @songs.map { |s| {"artist"=>s.artist, "title"=>s.title, "id"=>s.id, "url"=>s.song.url}}
   end
   
   def add
