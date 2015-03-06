@@ -1,4 +1,4 @@
-<div class="signInContainer">
+<div class="contentContainer">
 
   <h1>Sign Up</h1>
 
@@ -16,21 +16,22 @@
     
   <p>
     <%= f.label :username %><br />
-    <%= f.text_field :username, :id => "username" %>
+    <%= f.text_field :username, :id => "username", :class => "inputBox" %>
   </p>
   <p>
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "inputBox" %>
   </p>
   <p>
     <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.password_field :password, :class => "inputBox" %>
   </p>
   <p>
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, :class => "inputBox" %>
   </p>
-  <p class="button"><%= f.submit %></p>
+  <p class="button"><%= f.submit "Sign Up", :class => "loginButton" %></p>
+
 <% end %>
 
   <a href="login">Already have an Account? <br>Click here to login</a>

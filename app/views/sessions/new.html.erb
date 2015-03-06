@@ -1,10 +1,13 @@
 <!--User info container div-->
-<br><br>
-<div class="signInContainer">
+
+<div class="contentContainer">
 
 	<!--Log in to your account-->
 	<h1>Log in to your account</h1>
 
+	<% flash.each do |name, msg| %>
+	  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<% end %>
 	<!--User Information-->
 	<!--A wild ruby mixed with html code has appeared-->
 	<%= form_tag sessions_path do %>

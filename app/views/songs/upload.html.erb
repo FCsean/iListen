@@ -1,27 +1,29 @@
-<br><br><br><br><br><br>
+<div class="contentContainer">
 
-<% if @song.errors.any? %>
-<div class="error_messages">
-  <h2>Form is invalid</h2>
-  <ul>
-    <% for message in @song.errors.full_messages %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+  <% if @song.errors.any? %>
+  <div class="error_messages">
+    <h2>Form is invalid</h2>
+    <ul>
+      <% for message in @song.errors.full_messages %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <h1>Upload</h1>
+  <%= form_for @song, :url => songs_path, :html => { :multipart => true } do |form| %>
+    <%= form.file_field :song %>
+    <p>
+      <%= form.label :title %><br />
+      <%= form.text_field :title, :class => "inputBox"  %>
+    </p>
+    <p>
+      <%= form.label :artist %><br />
+      <%= form.text_field :artist, :class => "inputBox"  %>
+    </p>
+    <p>
+      <%= form.submit 'Upload', :class => "loginButton" %>
+    </p>
+  <% end %>
+
 </div>
-<% end %>
-<h1>Upload</h1>
-<%= form_for @song, :url => songs_path, :html => { :multipart => true } do |form| %>
-  <%= form.file_field :song %>
-  <p>
-    <%= form.label :title %><br />
-    <%= form.text_field :title %>
-  </p>
-  <p>
-    <%= form.label :artist %><br />
-    <%= form.text_field :artist %>
-  </p>
-  <p>
-    <%= form.submit 'Upload' %>
-  </p>
-<% end %>

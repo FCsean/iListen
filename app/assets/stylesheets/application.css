@@ -14,13 +14,123 @@
  *= require_self
  */
 
-p, a{
+p, a, body{
 	font-family: 'Myriad Pro';
 }
 
 h1{
 	font-family: 'Myriad Pro';
 	color: #333333;
+}
+
+h3{
+	font-family: 'Myriad Pro';
+	color: #333333;
+}
+
+h2{
+	font-family: 'Myriad Pro';
+	color: #333333;
+}
+
+
+.playerContainer{
+	float: left;
+	width: 40%;
+	border-right: 1px;
+	border-right-color: gray;
+}
+
+	#headphones{
+		size: 70%;
+		position: relative;
+		left: 50px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.player{
+		background-color: #2e2e2e;
+		width: 80%;
+	}
+
+	.playerNavBtn{
+	font-family: 'Myriad Pro';
+	border: 0;
+	color: #F0F0F0;
+	background-color: #EF4836;
+	padding: 7px;
+	/*margin: 5px;*/
+	/*border-radius: 3px;*/
+	size: 140%;
+	position: relative;
+	top: -12px;
+}
+	.playerNavBtn:hover{
+		background-color: #333333;
+		color: #F0F0F0;
+	}
+
+.songListSuperContainer{
+	float:left;
+	padding-left: 30px;
+	width: 40%;
+	position: relative;
+	top: 0px;
+}
+
+	.songListContainer{
+		position: relative;
+		top: -10px;
+		/*width: 30%;*/
+		margin-top: 10px;
+		padding: 10px;
+		background-color: #F0F0F0;
+	}
+
+	.deleteContainer{
+		background-color: #333333;
+		/*width: 30%;*/
+		height: 100%;
+		padding: 10px;
+		color: #F0F0F0;
+	}
+
+		.checkBox{
+		position: relative;
+		}
+
+
+	.whiteFont{
+	color: #333333;
+	font-size: 18pt;
+	font-style: bold;
+	position: relative;
+	top: 20px;
+	}
+
+.songSearchList{
+	font-family: 'Myriad Pro';
+	color: #333333;
+}
+
+.loginButton{
+	border: 0;
+	color: #F0F0F0;
+	background-color: #EF4836 ;
+	font-size: 20px;
+	width: 150px;
+	height: 40px;
+}
+/*           */
+	.loginButton:hover{
+	color: #F0F0F0;
+	background-color: #2e2e2e ;
+	}
+
+.contentContainer{
+	margin-top: 140px;
+	margin-left: 20px;
 }
 
 .inputBox{
@@ -31,6 +141,8 @@ h1{
 	padding: 10px;
 }
 
+/*Top Bar Menu Stuff*/
+
 #user_nav, #features_nav{
 	font-family: 'Myriad Pro';
 	color: white;
@@ -40,7 +152,9 @@ h1{
 	#loginID{
 		position: relative;
 		top: -68px;
-		left: 1150px;
+		left: -20px;
+		color: #D7D7D7;
+		text-align: right;
 	}
 
 	#options{
@@ -69,6 +183,7 @@ h1{
 			color: white;
 		}
 
+/*Top Bar Stuff*/
 #topBar{
 	background-color: #EF4836;
 	height: 85px;
@@ -106,12 +221,12 @@ h1{
 		font-size: 12pt;	
 	}
 
-#topBarBlack{
-	background-color: #2e2e2e;
-	height: 120px;
-	width: 100%;
-	position: fixed;
-	z-index: 700;
-	top: 0px;
-	left: 0px;
-}
+	#topBarBlack{
+		background-color: #2e2e2e;
+		height: 120px;
+		width: 100%;
+		position: fixed;
+		z-index: 700;
+		top: 0px;
+		left: 0px;
+	}

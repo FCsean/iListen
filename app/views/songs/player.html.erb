@@ -1,18 +1,41 @@
-<br><br><br><br><br><br><br><br><br>
-<% if @songs.to_a.length == 0 %>
-  <h1>No songs uploaded yet.</h1>
-<% else %>
-<h1>Currently Playing</h1>
-<h2><div id="currently"><%= @songs.to_a[0].artist %> - <%= @songs.to_a[0].title %></div></h2>
-<button onclick="prevSong()"><</button><audio id="player" src="<%= @songs[0].song %>" controls></audio><button onclick="nextSong()">></button>
-<br>
-<% count = 0 %>
-<h1>Uploaded Songs:</h1>
-<input type="checkbox" id="delete">Delete<br>
-<% @songs.each do |p| %>
-  <div onclick="clickSong(<%= count %>)">
-  <% count += 1 %>
-  <a class="song"><%= p.artist %> - <%= p.title %></a><br>
-  </div>
-<% end %>
-<% end %>
+<div class="contentContainer">
+
+	<div class="playerContainer">
+
+		<% if @songs.to_a.length == 0 %>
+		  <h1>No songs uploaded yet.</h1>
+		<% else %>
+		<h1>Currently Playing:</h1>
+
+		<img src="/assets/headphones.png" alt="Heaphones" id="headphones">
+
+		<h2><div id="currently"><%= @songs.to_a[0].artist %> - <%= @songs.to_a[0].title %></div></h2>
+		<button onclick="prevSong()" class="playerNavBtn"><</button><audio id="player" src="<%= @songs[0].song %>" class="player" controls></audio><button onclick="nextSong()" class="playerNavBtn">></button>
+		<br>
+		<% count = 0 %>
+
+	</div>
+
+	<div class="songListSuperContainer">
+
+		<p class="whiteFont"><strong>Uploaded Songs:</strong></p>
+		<div class="deleteContainer">
+		<input type="checkbox" id="delete" class="checkBox">Delete - Click to delete songs<br>
+		</div>
+
+		<div class="songListContainer">
+
+		<% @songs.each do |p| %>
+		  <div onclick="clickSong(<%= count %>)">
+		  <% count += 1 %>
+		  <a class="song"><%= p.artist %> - <%= p.title %></a><br>
+		  </div>
+		<% end %>
+		<% end %>
+
+		</div>
+
+	</div>
+
+
+</div>

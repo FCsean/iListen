@@ -1,44 +1,47 @@
-<br><br><br><br><br><br>
-<h1>Create a Playlist</h1>
+<div class="contentContainer">
 
-<%= form_for @playlist do |f| %>
-  <% if @playlist.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @playlist.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+  <h1>Create a Playlist</h1>
+
+  <%= form_for @playlist do |f| %>
+    <% if @playlist.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @playlist.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name, :class => "inputBox" %>
+    </p>
+    <p class="button"><%= f.submit "Create playlist", :class => "loginButton" %></p>
   <% end %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p class="button"><%= f.submit %></p>
-<% end %>
 
-<% if @playlists.to_a.length == 0 %>
-  <h1>No playlists yet.</h1>
-<% else %>
-<h1>Playlists:</h1>
-<input type="checkbox" id="delete">Delete<br>
+  <% if @playlists.to_a.length == 0 %>
+    <h1>No playlists yet.</h1>
+  <% else %>
+  <h1>Playlists:</h1>
+  <input type="checkbox" id="delete">Delete<br>
 
-<script>
- $(function() {
-    $( "#playListList" ).sortable();
-    $( "ol, li" ).disableSelection();
-  });
-</script>
+  <script>
+   $(function() {
+      $( "#playListList" ).sortable();
+      $( "ol, li" ).disableSelection();
+    });
+  </script>
 
-<ol id="playListList">
-<% count = 0 %>
-<% @playlists.each do |p| %>
-  <div>
-  <a class="playlist" onclick="clickPlaylist(<%= count %>)"> <%= p.name %> </a>
-  </div>
-  <% count += 1 %>
-<% end %>
-</ol>
-<% end %>
+  <ol id="playListList">
+  <% count = 0 %>
+  <% @playlists.each do |p| %>
+    <div>
+    <a class="playlist" onclick="clickPlaylist(<%= count %>)"> <%= p.name %> </a>
+    </div>
+    <% count += 1 %>
+  <% end %>
+  </ol>
+  <% end %>
+
+</div>
