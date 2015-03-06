@@ -1,5 +1,4 @@
 <div class="contentContainer">
-
 	<!-- <h1 id="playlist_name"><%= @playlist.name %></h1> -->
 	<div class="playerContainer">
 		<% if @songs.to_a.length == 0 %>
@@ -10,7 +9,7 @@
 		<img src="/assets/headphones.png" alt="Heaphones" id="headphones">
 
 		<h2><div id="currently"><%= @songs.to_a[0].artist %> - <%= @songs.to_a[0].title %></div></h2>
-		<button onclick="prevSong()" class="playerNavBtn"><</button><audio id="player" src="<%= @songs[0].song %>" class="player" controls></audio><button onclick="nextSong()" class="playerNavBtn">></button>
+		<button onclick="prevSongInPlaylist()" class="playerNavBtn"><</button><audio id="player" src="<%= @songs[0].song %>" class="player" controls></audio><button onclick="nextSongInPlaylist()" class="playerNavBtn">></button>
 		<br>
 		<% count = 0 %>
 
@@ -20,13 +19,13 @@
 
 		<p class="whiteFont"><strong>Playlist: <span id="playlist_name"><%= @playlist.name %></span></strong></p>
 		<div class="deleteContainer">
-		<!-- <input type="checkbox" id="delete" class="checkBox">Delete - Click to delete songs<br> -->
+		<input type="checkbox" id="delete" class="checkBox">Delete - Click to delete songs<br>
 		</div>
 
 		<div class="songListContainerInPlaylist">
 
 		<% @songs.each do |p| %>
-		  <div onclick="clickSong(<%= count %>)">
+		  <div onclick="clickSongInPlaylist(<%= count %>)">
 		  <% count += 1 %>
 		  <a class="song"><%= p.artist %> - <%= p.title %></a><br>
 		  </div>
@@ -41,7 +40,7 @@
 
 	<div class="songListContainerPlaylist">
 	<h3>Your Songs</h3>
-	  <div id="search_results", class="songSearchList"></div>
+	  <div id="search_results" class="songSearchList"></div>
 	</div>
 
 	<div class="addToPlaylistContainer">

@@ -1,11 +1,32 @@
 var current = 0;
 
+function clickSongInPlaylist(n){
+  if($('#delete').prop('checked')){console.log("Delete");
+    $.ajax({
+      type:'POST',
+      url:'/delete/songinplaylist',
+      data: { song_id : gon.songs[n].id,
+              playlist_name : $("#playlist_name").text()
+            },
+      success:function(){
+        //I assume you want to do something on controller action execution success?
+        location.reload();
+      },
+      error:function(){
+        location.reload();
+      }
+    });
+  }else{
+    changeSongInPlaylist(n);
+  }
+}
+
 function changeSongInPlaylist(n){
   current = n;
   var player = document.getElementById("player");
   var playing = !player.paused;
   $("#player").attr("src", gon.playlist_songs[n].url);
-  $("#currently").text(gon.songs[n].artist + " - " + gon.songs[n].title)
+  $("#currently").text(gon.playlist_songs[n].artist + " - " + gon.playlist_songs[n].title)
   if(playing)
     player.play();
 };
@@ -58,12 +79,8 @@ function clickPlaylist(n){
     });
 
   }else{
-    redirect(gon.playlists[n].name)
+    redirect("playlist/"+gon.playlists[n].name)
   }
-}
-
-function redirect(n){
-  location.replace("/playlist/"+n);
 }
 
 $("document").ready(function (){
@@ -80,8 +97,6 @@ $("document").ready(function (){
   var m = f.map(function (s) {return s.artist + " - " + s.title;});
   id = f.length > 0 ? f[0].id : -1;
   $("#search_results").html(m.join("<br>"));
-  $("#prev").click(prevSongInPlaylist);
-  $("#next").click(nextSongInPlaylist);
   $("#delete").attr('checked', false); 
-  $("#player").on("ended", function(){nextSong(); document.getElementById("player").play();});
+  $("#player").on("ended", function(){nextSongInPlaylist(); document.getElementById("player").play();});
 });

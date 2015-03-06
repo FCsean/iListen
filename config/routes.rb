@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/player' => 'songs#player'
   post '/delete/playlist' => 'playlists#delete'
   post '/delete/song' => 'songs#delete'
+  post '/delete/songinplaylist' => 'playlists#deleteinplaylist'
   get '/playlists' => 'playlists#playlists'
   post '/playlists/add' => 'playlists#add'
   get '/playlist/:name', to: 'playlists#playlist'

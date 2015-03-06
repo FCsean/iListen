@@ -42,4 +42,11 @@ class PlaylistsController < ApplicationController
   def delete
     Playlist.find(params[:playlist_id]).destroy
   end
+  
+  def deleteinplaylist
+    playlist = Playlist.where(name: params[:playlist_name]).to_a.first
+    song = Song.find(params[:song_id])
+    p "delete"
+    playlist.songs.delete(song)
+  end
 end
