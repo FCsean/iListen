@@ -1,10 +1,7 @@
 <div class="contentContainer">
 
 	<!-- <h1 id="playlist_name"><%= @playlist.name %></h1> -->
-
 	<div class="playerContainer">
-		<!-- <h1 id="playlist_name"><%= @playlist.name %></h1> -->
-
 		<% if @songs.to_a.length == 0 %>
 		  <h1>No songs added yet.</h1>
 		<% else %>
@@ -21,7 +18,7 @@
 
 	<div class="songListSuperContainer">
 
-		<p class="whiteFont"><strong>Playlist: <%= @playlist.name %></strong></p>
+		<p class="whiteFont"><strong>Playlist: <span id="playlist_name"><%= @playlist.name %></span></strong></p>
 		<div class="deleteContainer">
 		<!-- <input type="checkbox" id="delete" class="checkBox">Delete - Click to delete songs<br> -->
 		</div>
@@ -55,5 +52,6 @@
 	  <button onclick="addToPlaylist()" class="loginButton">Add</button><br><br>
 
 	</div>
-
+	<h1 id="playlist_name" style="opacity:0"><%= @playlist.name %></h1>
 </div>
+
