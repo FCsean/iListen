@@ -4,8 +4,8 @@
 
   <%= form_for @playlist do |f| %>
     <% if @playlist.errors.any? %>
-      <div class="error_messages">
-        <h2>Form is invalid</h2>
+      <div class="error">
+        <h2 class="error">Form is invalid</h2>
         <ul>
           <% for message in @playlist.errors.full_messages %>
             <li><%= message %></li>
@@ -23,25 +23,36 @@
   <% if @playlists.to_a.length == 0 %>
     <h1>No playlists yet.</h1>
   <% else %>
+
+  <div class="playListContainerPlaylists">
   <h1>Playlists:</h1>
-  <input type="checkbox" id="delete">Delete<br>
 
-  <script>
-   $(function() {
-      $( "#playListList" ).sortable();
-      $( "ol, li" ).disableSelection();
-    });
-  </script>
+    <div class="deleteContainer" style="width:30%">
+      <input type="checkbox" id="delete" class="checkBox">Delete - Click to delete playlists<br>
+      </div>
 
-  <ol id="playListList">
-  <% count = 0 %>
-  <% @playlists.each do |p| %>
-    <div>
-    <a class="playlist" onclick="clickPlaylist(<%= count %>)"> <%= p.name %> </a>
+    <script>
+     $(function() {
+        $( "#playListList" ).sortable();
+        $( "ol, li" ).disableSelection();
+      });
+    </script>
+
+    <div class="songListContainer" style="width:30%">
+
+      <ol id="playListList">
+      <% count = 0 %>
+      <% @playlists.each do |p| %>
+        <li>
+        <a class="playlist" onclick="clickPlaylist(<%= count %>)"> <%= p.name %> </a>
+        </li>
+        <% count += 1 %>
+      <% end %>
+      </ol>
+      <% end %>
+
     </div>
-    <% count += 1 %>
-  <% end %>
-  </ol>
-  <% end %>
+
+</div>
 
 </div>

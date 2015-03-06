@@ -2,8 +2,8 @@
 
   <% if @song.errors.any? %>
   <div class="error_messages">
-    <h2>Form is invalid</h2>
-    <ul>
+    <h2 class="error">Form is invalid</h2>
+    <ul class="error">
       <% for message in @song.errors.full_messages %>
         <li><%= message %></li>
       <% end %>

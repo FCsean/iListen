@@ -33,6 +33,31 @@ h2{
 	color: #333333;
 }
 
+.error{
+	color: red;
+}
+
+.addToPlaylistContainer{
+	float: left;
+	position: relative;
+	width: 250px;
+	padding-left: 30px;
+}
+
+.playListContainer{
+	float: left;
+	size: 40%;
+	padding-left: 30px;
+	width: 40%;
+	position: relative;
+	top: 0px;
+}
+
+.playListContainerPlaylists{
+	position: relative;
+	top: -190px;
+	left: 500px;
+}
 
 .playerContainer{
 	float: left;
@@ -44,7 +69,7 @@ h2{
 	#headphones{
 		size: 70%;
 		position: relative;
-		left: 50px;
+		left: 100px;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -76,7 +101,7 @@ h2{
 	padding-left: 30px;
 	width: 40%;
 	position: relative;
-	top: 0px;
+	top: -15px;
 }
 
 	.songListContainer{
@@ -86,6 +111,36 @@ h2{
 		margin-top: 10px;
 		padding: 10px;
 		background-color: #F0F0F0;
+		height: 321px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+
+	.songListContainerInPlaylist{
+		position: relative;
+		top: -10px;
+		/*width: 30%;*/
+		margin-top: 10px;
+		padding: 10px;
+		background-color: #F0F0F0;
+		height: 100px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+
+	.songListContainerPlaylist{
+		position: relative;
+		top: 0px;
+		left: -235px;
+		float: right;
+		/*width: 30%;*/
+		width: 250px;
+		margin-top: 10px;
+		padding: 10px;
+		background-color: #F0F0F0;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		height: 185px;
 	}
 
 	.deleteContainer{
@@ -142,7 +197,6 @@ h2{
 }
 
 /*Top Bar Menu Stuff*/
-
 #user_nav, #features_nav{
 	font-family: 'Myriad Pro';
 	color: white;

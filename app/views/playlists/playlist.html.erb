@@ -1,31 +1,59 @@
 <div class="contentContainer">
 
-	<h1 id="playlist_name"><%= @playlist.name %></h1>
+	<!-- <h1 id="playlist_name"><%= @playlist.name %></h1> -->
 
-	<% if @songs.to_a.length == 0 %>
-	  <h2>No songs added to playlist yet.</h2>
-	<% else %>
-	<h1>Currently Playing</h1>
-	<h2><div id="currently"><%= @songs.to_a[0].artist %> - <%= @songs.to_a[0].title %></div></h2>
-	<button id="prev", class="playerNavBtn"><</button><audio id="player" src="<%= @songs[0].song %>" controls></audio><button id="next", class="playerNavBtn">></button>
-	<br>
-	<% count = 0 %>
-	<h2>Playlist:</h2>
-	<% @songs.each do |p| %>
-	  <div onclick="changeSong(<%= count %>)">
-	  <% count += 1 %>
-	  <a class="song"><%= p.artist %> - <%= p.title %></a><br>
-	  </div>
-	<% end %>
-	<% end %>
+	<div class="playerContainer">
+		<!-- <h1 id="playlist_name"><%= @playlist.name %></h1> -->
+
+		<% if @songs.to_a.length == 0 %>
+		  <h1>No songs added yet.</h1>
+		<% else %>
+		<h1>Currently Playing:</h1>
+
+		<img src="/assets/headphones.png" alt="Heaphones" id="headphones">
+
+		<h2><div id="currently"><%= @songs.to_a[0].artist %> - <%= @songs.to_a[0].title %></div></h2>
+		<button onclick="prevSong()" class="playerNavBtn"><</button><audio id="player" src="<%= @songs[0].song %>" class="player" controls></audio><button onclick="nextSong()" class="playerNavBtn">></button>
+		<br>
+		<% count = 0 %>
+
+	</div>
+
+	<div class="songListSuperContainer">
+
+		<p class="whiteFont"><strong>Playlist: <%= @playlist.name %></strong></p>
+		<div class="deleteContainer">
+		<!-- <input type="checkbox" id="delete" class="checkBox">Delete - Click to delete songs<br> -->
+		</div>
+
+		<div class="songListContainerInPlaylist">
+
+		<% @songs.each do |p| %>
+		  <div onclick="clickSong(<%= count %>)">
+		  <% count += 1 %>
+		  <a class="song"><%= p.artist %> - <%= p.title %></a><br>
+		  </div>
+		<% end %>
+		<% end %>
+
+		</div>
+
+	</div>
+
 	<br><br>
+
+	<div class="songListContainerPlaylist">
+	<h3>Your Songs</h3>
+	  <div id="search_results", class="songSearchList"></div>
+	</div>
+
+	<div class="addToPlaylistContainer">
+
 	<h3>Add to playlist</h3>
 	<div id="search_area">
 	  <input id="search" placeholder="type an artist or title here" type="text" class="inputBox"><br><br>
 	  <button onclick="addToPlaylist()" class="loginButton">Add</button><br><br>
 
-	<h3>Your Songs</h3>
-	  <div id="search_results", class="songSearchList"></div>
 	</div>
 
 </div>
