@@ -7,7 +7,7 @@
 		<% else %>
 		<h1>Currently Playing:</h1>
 
-		<img src="/assets/headphones.png" alt="Heaphones" id="headphones">
+		<video src="/assets/AA.mp4" alt="Heaphones" id="headphones" autoplay loop></video>
 
 		<h2><div id="currently"><%= @songs.to_a[0].artist %> - <%= @songs.to_a[0].title %></div></h2>
 		<button onclick="prevSongInPlaylist()" class="playerNavBtn"><</button><audio id="player" src="<%= @songs[0].song %>" class="player" controls></audio><button onclick="nextSongInPlaylist()" class="playerNavBtn">></button>
