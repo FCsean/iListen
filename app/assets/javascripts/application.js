@@ -12,8 +12,3 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-
-function redirect(n){
-  location.assign("/"+n);
-}

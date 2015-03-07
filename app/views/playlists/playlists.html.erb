@@ -1,3 +1,4 @@
+<%= javascript_include_tag "jquery-ui.min.js" %> 
 <div class="contentContainer">
 
   <h1>Create a Playlist</h1>
@@ -31,24 +32,13 @@
       <input type="checkbox" id="delete" class="checkBox">Delete - Click to delete playlists<br>
       </div>
 
-    <script>
-     $(function() {
-        $( "#playListList" ).sortable();
-        $( "ol, li" ).disableSelection();
-      });
-    </script>
-
     <div class="songListContainer" style="width:30%">
 
-      <ol id="playListList">
       <% count = 0 %>
       <% @playlists.each do |p| %>
-        <li>
-        <a class="playlist" onclick="clickPlaylist(<%= count %>)"> <%= p.name %> </a>
-        </li>
+        <a class="playlist" onclick="clickPlaylist(<%= count %>)"> <%= p.name %> </a></br>
         <% count += 1 %>
       <% end %>
-      </ol>
       <% end %>
 
     </div>

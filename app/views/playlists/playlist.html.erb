@@ -1,3 +1,4 @@
+<%= javascript_include_tag "jquery-ui.min.js" %> 
 <div class="contentContainer">
 	<!-- <h1 id="playlist_name"><%= @playlist.name %></h1> -->
 	<div class="playerContainer">
@@ -23,15 +24,17 @@
 		</div>
 
 		<div class="songListContainerInPlaylist">
-
+        <ol id="songList" style="padding-left:10px;margin-top:5px;">
 		<% @songs.each do |p| %>
+          <li id="<%= count %>" style="list-style-type: none;">
 		  <div onclick="clickSongInPlaylist(<%= count %>)">
 		  <% count += 1 %>
 		  <a class="song"><%= p.artist %> - <%= p.title %></a><br>
 		  </div>
+          </li>
 		<% end %>
 		<% end %>
-
+        </ol>
 		</div>
 
 	</div>

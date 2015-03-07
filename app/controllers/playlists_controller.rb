@@ -11,16 +11,20 @@ class PlaylistsController < ApplicationController
     if @playlist.save
       redirect_to "/playlist/"+@playlist.name, :notice => "Created!"
     else
+      setplaylist
       render "playlists"
     end
   end
   
   def playlists
     @playlist = Playlist.new
+    setplaylist
+  end
+  
+  def setplaylist
     @playlists = current_user.playlists
     gon.playlists = @playlists.map { |p| {"name"=> p.name, "id"=>p.id}}
   end
-  
   def playlist
     @playlist = current_user.playlists.where(name: params[:name]).to_a
     if @playlist.length == 0

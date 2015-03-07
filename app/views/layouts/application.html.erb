@@ -2,11 +2,10 @@
 <html>
 <head>
   <title>iListen</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= javascript_include_tag params[:controller] %> 
   <%= javascript_include_tag "application.js" %> 
+  <%= javascript_include_tag params[:controller] %> 
+  <%= stylesheet_link_tag  'application', media: 'all' %>  
 </head>
 <body>
 
@@ -24,9 +23,9 @@
 	   </div>
 
 	<div id="options">
-	<a class="menu" onclick="redirect('')">Songs</a>
-	<a class="menu" onclick="redirect('playlists')">Playlists</a>
-    <a class="menu" onclick="redirect('upload')">Upload</a>
+	<a class="menu" href="/">Songs</a>
+	<a class="menu" href="/playlists">Playlists</a>
+    <a class="menu" href="redirect('upload')">Upload</a>
 	<%= link_to "Log out", logout_path, :class => "menu" %>
 	</div>
   <% end %>

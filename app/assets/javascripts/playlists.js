@@ -17,16 +17,23 @@ function clickSongInPlaylist(n){
       }
     });
   }else{
-    changeSongInPlaylist(n);
+    var array = gon.playlist_songs;
+    current = song_list.indexOf(gon.playlist_songs[n]);
+    var player = document.getElementById("player");
+    var playing = !player.paused;
+    $("#player").attr("src", array[n].url);
+    $("#currently").text(array[n].artist + " - " + array[n].title)
+    if(playing)
+      player.play();
   }
 }
 
-function changeSongInPlaylist(n){
+function changeSongInPlaylist(n, array){
   current = n;
   var player = document.getElementById("player");
   var playing = !player.paused;
-  $("#player").attr("src", gon.playlist_songs[n].url);
-  $("#currently").text(gon.playlist_songs[n].artist + " - " + gon.playlist_songs[n].title)
+  $("#player").attr("src", array[n].url);
+  $("#currently").text(array[n].artist + " - " + array[n].title)
   if(playing)
     player.play();
 };
@@ -34,13 +41,13 @@ function changeSongInPlaylist(n){
 function nextSongInPlaylist(){
   current++;
   current %= gon.playlist_songs.length;
-  changeSongInPlaylist(current);
+  changeSongInPlaylist(current, song_list);
 }
 
 function prevSongInPlaylist(){console.log("n");
   current--;
   current = current < 0 ? current.length-1 : current;
-  changeSongInPlaylist(current);
+  changeSongInPlaylist(current, song_list);
 }
 
 function addToPlaylist(){
@@ -83,6 +90,10 @@ function clickPlaylist(n){
   }
 }
 
+function redirect(n){
+  location.assign(n);
+}
+
 $("document").ready(function (){
   $("#search").keyup(function() {
     var q = $("#search").val().toUpperCase();
@@ -99,4 +110,18 @@ $("document").ready(function (){
   $("#search_results").html(m.join("<br>"));
   $("#delete").attr('checked', false); 
   $("#player").on("ended", function(){nextSongInPlaylist(); document.getElementById("player").play();});
+  $(function() {
+    $("#songList").sortable();
+    $("ol, li").disableSelection();
+  });
+  $("#songList").on("sortupdate", function(event, ui){
+    var sorted = $("#songList").sortable("toArray");
+    for(var i = 0; i < gon.playlist_songs.length; i++){
+      song_list[i] = gon.playlist_songs[sorted[i]];
+    }
+  });
+  song_list = [];
+  for(var i = 0; i < gon.playlist_songs.length; i++){
+    song_list.push(gon.playlist_songs[i]);
+  }
 });

@@ -13,6 +13,16 @@
  *= require_tree .
  *= require_self
  */
+@font-face{
+  font-family: 'Myriad Pro';
+  src: url('/assets/MyriadPro-Regular.otf') format('opentype');
+}
+
+@font-face{
+  font-family: 'Myriad Pro';
+  font-weight: bold;
+  src: url('/assets/MyriadPro-Bold.otf') format('opentype');
+}
 
 p, a, body{
 	font-family: 'Myriad Pro';
@@ -201,20 +211,19 @@ h2{
 	font-family: 'Myriad Pro';
 	color: white;
 	font-size: 12pt;
+  margin-top: 20px;
+  padding-left: 30px;
+  padding-right: 20px;
 }
 
 	#loginID{
-		position: relative;
-		top: -68px;
-		left: -20px;
+    
+    float: right;
 		color: #D7D7D7;
-		text-align: right;
 	}
 
 	#options{
-		position: relative;
-		top: -90px;
-		left: 30px;
+		float: left;
 	}
 
 	.menu {
@@ -257,7 +266,8 @@ h2{
 
 	#topBar .iListen{
 		left: 30px;
-    	top: -20px;
+    margin: 0px;
+    margin-top: 20px;
     	position: relative;
 		color: #F0F0F0;
 		font-family: 'Myriad Pro';
@@ -267,7 +277,8 @@ h2{
 
 	#topBar .iListenSubtext{
 		left: 30px;
-    	top: -70px;
+    margin: 0px;
+    margin-top: -15px;
     	position: relative;
 		color: #F0F0F0;
 		font-family: 'Myriad Pro';

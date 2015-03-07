@@ -14,3 +14,5 @@ Rails.application.config.assets.version = '1.0'
   Rails.application.config.assets.precompile += ["#{controller}.js.coffee"]
   Rails.application.config.assets.precompile += ["#{controller}.js"]
 end
+
+Rails.application.config.assets.precompile += %w( jquery-ui.min.js )
