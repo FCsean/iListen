@@ -45,4 +45,6 @@ function prevSong(){
 $(document).ready(function(){
   $("#delete").attr('checked', false);
   $("#player").on("ended", function(){nextSong(); document.getElementById("player").play();});
+  $("#player").on("play", function(){document.getElementById("headphones").play()});
+  $("#player").on("pause", function(){document.getElementById("headphones").pause()});
 })

@@ -110,6 +110,8 @@ $("document").ready(function (){
   $("#search_results").html(m.join("<br>"));
   $("#delete").attr('checked', false); 
   $("#player").on("ended", function(){nextSongInPlaylist(); document.getElementById("player").play();});
+  $("#player").on("play", function(){document.getElementById("headphones").play()});
+  $("#player").on("pause", function(){document.getElementById("headphones").pause()});
   $(function() {
     $("#songList").sortable();
     $("ol, li").disableSelection();
