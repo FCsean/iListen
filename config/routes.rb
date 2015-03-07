@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/upload' => 'songs#upload', :as => 'upload'
   get '/users', to: redirect('signup')
   get '/sessions', to: redirect('login')
+  get '/songs', to: redirect('upload')
   get '/signup' => 'users#new', :as => 'signup'
   get '/player' => 'songs#player'
   post '/delete/playlist' => 'playlists#delete'

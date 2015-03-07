@@ -30,9 +30,6 @@ class SongsController < ApplicationController
   end
   
   def delete
-    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    # p params[:song]
-    p Song.find(params[:song_id]).title
     Song.find(params[:song_id]).destroy    
   end
   
